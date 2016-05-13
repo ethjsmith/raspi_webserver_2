@@ -1,0 +1,47 @@
+
+<!DOCTYPE HTML>
+<html lang="en-us">
+	<head>
+	<meta charset="utf-8">
+	<meta name="author" content="Ethan Smith">
+	<title>Webserver test site</title>
+	<link rel="stylesheet" type="text/css" href="stylesheet.css" media = 'screen' >
+	<script type = 'text/javascript'>
+	// nice quality global variables
+	var msg = '';
+	var song = '';
+	// this function ( kind of a test function) will speak aloud the time
+	function clock(){
+		new Image().src = 'http://192.168.1.114:8000/cgi-bin/clock.py';
+	}
+	// this function will read out the weather (needs to be updated to Lehi UT instead of rexburg!)
+	function weather(){
+		new Image().src = 'http://192.168.1.114:8000/cgi-bin/weather.py';
+	}
+	// this function will take a user typed message, and play it 
+	function message(){
+		var msg = prompt("enter the message you want read!");
+		var msg = msg.replace(/ /g,'_');
+		new Image().src = 'http://192.168.1.114:8000/cgi-bin/messager.py?' + msg;
+	}
+	// this function will play a song from the pi's library... currently unfinished
+	function playsound(){
+		var song = window.prompt("What song would you like to play?");
+		new Image().src = 'http://192.168.1.114:8000/cgi-bin/music_manager.py?' + song;
+	}
+
+	
+	
+	</script>
+
+	</head>
+
+	<body>
+	Rasberry pi control center<br>
+	<!--<a target = '_blank' href = 'http://192.168.1.151:8000/cgi-bin/clock.py'><button type = 'button' class = 'button'>Time</button></a><br> -->
+	<button id ='clockButton' type = 'button' class = 'button' onClick = 'clock()' >Time</button><br>
+	<button id ='weatherButton' type = 'button' class = 'button' onClick = 'weather()' >Weather</button><br>
+	<button id = 'messagerButton' type = 'button' class = 'button' onclick = 'message()' >message</button><br>
+	<button id = 'musicButton' type = 'button' class = 'button' onclick = 'playsound()' >play song</button><br>
+		</body>
+</html>
