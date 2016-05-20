@@ -31,7 +31,7 @@
 	// this is the XMLHTTPrequest driver bit... it basically runs the code for clock, weather, and message
 	function run(p1,p2){
 	var xhttp = new XMLHttpRequest();
-	var path = "/cgi-bin/" + p1 + ".py"
+	var path = "cgi-bin/" + p1 + ".py"
 	xhttp.open("POST", path+'?'+p2, true);
 	xhttp.send();
 	}
