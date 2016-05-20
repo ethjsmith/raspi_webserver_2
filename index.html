@@ -10,24 +10,30 @@
 	// nice quality global variables
 	var msg = '';
 	var song = '';
-	// this function ( kind of a test function) will speak aloud the time
-	function clock(){
-		new Image().src = 'http://192.168.1.114:8000/cgi-bin/clock.py';
-	}
-	// this function will read out the weather (needs to be updated to Lehi UT instead of rexburg!)
-	function weather(){
-		new Image().src = 'http://192.168.1.114:8000/cgi-bin/weather.py';
-	}
+
 	// this function will take a user typed message, and play it 
 	function message(){
 		var msg = prompt("enter the message you want read!");
 		var msg = msg.replace(/ /g,'_');
-		new Image().src = 'http://192.168.1.114:8000/cgi-bin/messager.py?' + msg;
+		var msg = msg.replace(/'/g,'');
+		
+		run('messager',msg)
+	}
+	function play(){
+		var song = prompt('enter the song you want played!');
+		var song = song.replace(/ /g,'_');
+		run('play',song)
 	}
 	// this function will play a song from the pi's library... currently unfinished
 	function playsound(){
-		var song = window.prompt("What song would you like to play?");
-		new Image().src = 'http://192.168.1.114:8000/cgi-bin/music_manager.py?' + song;
+		run('check');
+	}
+	// this is the XMLHTTPrequest driver bit... it basically runs the code for clock, weather, and message
+	function run(p1,p2){
+	var xhttp = new XMLHttpRequest();
+	var path = "/cgi-bin/" + p1 + ".py"
+	xhttp.open("POST", path+'?'+p2, true);
+	xhttp.send();
 	}
 
 	
@@ -39,9 +45,9 @@
 	<body>
 	Rasberry pi control center<br>
 	<!--<a target = '_blank' href = 'http://192.168.1.151:8000/cgi-bin/clock.py'><button type = 'button' class = 'button'>Time</button></a><br> -->
-	<button id ='clockButton' type = 'button' class = 'button' onClick = 'clock()' >Time</button><br>
-	<button id ='weatherButton' type = 'button' class = 'button' onClick = 'weather()' >Weather</button><br>
-	<button id = 'messagerButton' type = 'button' class = 'button' onclick = 'message()' >message</button><br>
-	<button id = 'musicButton' type = 'button' class = 'button' onclick = 'playsound()' >play song</button><br>
+	<button id ='clockButton' type = 'button' class = 'button' onClick = 'run("clock")' >Time</button><br>
+	<button id ='weatherButton' type = 'button' class = 'button' onClick = 'run("weather")' >Weather</button><br>
+	<button id = 'messagerButton' type = 'button' class = 'button' onClick = 'message()' >message</button><br>
+	<button id = 'musicButton' type = 'button' class = 'button' onClick = 'play()'>play song</button><br>
 		</body>
 </html>

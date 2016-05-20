@@ -12,21 +12,22 @@
 	var song = '';
 	// this function ( kind of a test function) will speak aloud the time
 	function clock(){
-		new Image().src = 'http://192.168.1.151:8000/cgi-bin/clock.py';
+		new Image().src = 'http://192.168.1.114:8000/cgi-bin/clock.py';
 	}
 	// this function will read out the weather (needs to be updated to Lehi UT instead of rexburg!)
 	function weather(){
-		new Image().src = 'http://192.168.1.151:8000/cgi-bin/weather.py';
+		new Image().src = 'http://192.168.1.114:8000/cgi-bin/weather.py';
 	}
 	// this function will take a user typed message, and play it 
 	function message(){
 		var msg = prompt("enter the message you want read!");
 		var msg = msg.replace(/ /g,'_');
-		new Image().src = 'http://192.168.1.151:8000/cgi-bin/messager.py?' + msg;
+		new Image().src = 'http://192.168.1.114:8000/cgi-bin/messager.py?' + msg;
 	}
 	// this function will play a song from the pi's library... currently unfinished
 	function playsound(){
 		var song = window.prompt("What song would you like to play?");
+		new Image().src = 'http://192.168.1.114:8000/cgi-bin/music_manager.py?' + song;
 	}
 
 	

@@ -1,0 +1,37 @@
+<!DOCTYPE HTML>
+<html lang="en-us">
+	<head>
+	<meta charset="utf-8">
+	<meta name="author" content="Ethan Smith">
+	<title>Webserver test site</title>
+	<link rel="stylesheet" type="text/css" href="stylesheet.css" media = 'screen' >
+	<script type = 'text/javascript'>
+	
+	
+	// this is the XMLHTTPrequest driver bit
+	function works () {
+    alert(this.responseText);
+}
+	function run(p1,p2){
+	var xhttp = new XMLHttpRequest();
+	var path = "/cgi-bin/" + p1 + ".py"
+	xhttp.open("POST", path+'?'+p2, true);
+	xhttp.send();
+	xhttp.onload = works();
+	var testvar = xhttp.responseText;
+	//alert (testvar);
+	}
+
+	
+	
+	</script>
+
+	</head>
+
+	<body onload='run("check")'>
+	music list<br>
+
+	<a href ='index.html' ><button id ='goBack' type = 'button' class = 'button' >Click here to go back</button></a><br>
+
+		</body>
+</html>

@@ -3,7 +3,8 @@ import os
 import sys
 from urllib2 import Request, urlopen, URLError
 
-request = Request('http://api.openweathermap.org/data/2.5/weather?q=Rexburg,us&units=imperial&appid=6cab241c4b4cc4f945f010ec5448902c')
+
+request = Request('http://api.openweathermap.org/data/2.5/weather?q=Lehi,us&units=imperial&appid=c4346c13b22d2e3023d3e69e2e8d296a')
 
 try:
 	response = urlopen(request)
