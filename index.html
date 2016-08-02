@@ -28,6 +28,15 @@
 	function playsound(){
 		run('check');
 	}
+	function toggle(){
+		run('toggle');
+	}
+	function clock(){
+		run('clock');
+	}
+	function weather(){
+		run('weather');
+	}
 	// this is the XMLHTTPrequest driver bit... it basically runs the code for clock, weather, and message
 	function run(p1,p2){
 	var xhttp = new XMLHttpRequest();
@@ -43,11 +52,17 @@
 	</head>
 
 	<body>
-	Rasberry pi control center<br>
-	<!--<a target = '_blank' href = 'http://192.168.1.151:8000/cgi-bin/clock.py'><button type = 'button' class = 'button'>Time</button></a><br> -->
-	<button id ='clockButton' type = 'button' class = 'button' onClick = 'run("clock")' >Time</button><br>
-	<button id ='weatherButton' type = 'button' class = 'button' onClick = 'run("weather")' >Weather</button><br>
-	<button id = 'messagerButton' type = 'button' class = 'button' onClick = 'message()' >message</button><br>
-	<button id = 'musicButton' type = 'button' class = 'button' onClick = 'play()'>play song</button><br>
-		</body>
+		<!--<a target = '_blank' href = 'http://192.168.1.151:8000/cgi-bin/clock.py'><button type = 'button' class = 'button'>Time</button></a><br> -->
+		<img src = 'images/power.png' onclick='toggle()'></img><br>
+		<img src = 'images/msg.png' onclick='message()'></img><br>
+		<img src = 'images/clock.png' onclick='clock()'></img><br>
+		<img src = 'images/weather.png' onclick='weather()'></img><br>
+		<img src = 'images/music.png' onclick='play()'></img><br>
+		<!-- The old version of the site, before I got fancy pictures
+			<button id ='clockButton' type = 'button' class = 'button' onClick = 'run("clock")' >Time</button><br>
+			<button id ='weatherButton' type = 'button' class = 'button' onClick = 'run("weather")' >Weather</button><br>
+			<button id = 'messagerButton' type = 'button' class = 'button' onClick = 'message()' >message</button><br>
+			<button id = 'musicButton' type = 'button' class = 'button' onClick = 'play()'>play song</button><br>
+		-->
+	</body>
 </html>
