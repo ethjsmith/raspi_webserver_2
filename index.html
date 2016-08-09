@@ -28,8 +28,17 @@
 	function playsound(){
 		run('check');
 	}
-	function toggle(){
-		run('toggle');
+	function light1on(){
+		run('on1');
+	}
+	function light1off(){
+		run('off1');
+	}
+	function light2on(){
+		run('on2');
+	}
+	function light2off(){
+		run ('off2');
 	}
 	function clock(){
 		run('clock');
@@ -53,7 +62,7 @@
 
 	<body>
 		<!--<a target = '_blank' href = 'http://192.168.1.151:8000/cgi-bin/clock.py'><button type = 'button' class = 'button'>Time</button></a><br> -->
-		<img src = 'images/power.png' onclick='toggle()'></img><br>
+		<img src = 'images/on.png' onclick='light1on()'></img><img src = 'images/off.png' onclick='light1off()'></img><br>
 		<img src = 'images/msg.png' onclick='message()'></img><br>
 		<img src = 'images/clock.png' onclick='clock()'></img><br>
 		<img src = 'images/weather.png' onclick='weather()'></img><br>

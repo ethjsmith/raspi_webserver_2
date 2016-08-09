@@ -1,0 +1,6 @@
+Instructions for starting the server :P
+That could be helpful, right? this will probably become the readme
+
+(from the raspi directory) ( so rasoiwebserver2 or whatever)
+also you need to install screen... but I've done that and this is my project haha
+screen python -m CGIHTTPServer 8000
